@@ -1,0 +1,94 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #dedede;
+  padding: 5px;
+  margin: 15px;
+  font-size: 25px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.95em;
+}
+
+h2 {
+  text-align: center;
+}
+
+li {
+  margin-top: 20px;
+}
+
+img {
+  border: 5px solid blue;
+  border-radius: 35px;
+  width: 100%;
+}
+
+.label {
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Перший медіа-запит для мобільних пристроїв */
+@media only screen and (max-width: 772px) {
+  body {
+    /* Видаліть поведінку прокрутки */
+    overflow: hidden;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* Другий медіа-запит для планшетних пристроїв */
+@media only screen and (min-width: 772px) and (max-width: 992px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .grid figure:last-child {
+    grid-column: span 2;
+  }
+
+  .grid figure {
+    border-radius: 20px;
+  }
+}
+
+/* Третій медіа-запит для широкоформатних пристроїв */
+@media only screen and (min-width: 992px) {
+  .grid figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+
+  .grid figure {
+    border-radius: 0; /* Видаліть радіус рамки */
+  }
+}
+
+/* Медіа-запит для темної теми */
+@media (prefers-color-scheme: black) {
+  .grid img {
+    background-color: #333; /* Змініть колір фону на темний */
+    color: #f0f0f0; /* Змініть колір тексту на світлий (наприклад, жовтуватий) */
+    border-color: black; /* Змініть колір рамки на чорний */
+  }
+}
+img {
+  border: 5px solid black;
+  border-radius: 1px;
+  width: 355px; /* Змініть ширину на 20px */
+  height: 255px; /* Змініть висоту на 20px */
+  object-fit: cover; /* Це збереже пропорції та розтягне зображення на весь область, включаючи фон */
+  background-color: transparent; /* Зберігаємо прозорий фон */
+}
